@@ -1,23 +1,142 @@
+/* Managing the color scheme with blue as the primary color */
 :root {
-  --primary: #2e5bff;
-  --bg: #1a1c1e;
-  --bg-soft: #23262a;
-  --surface: #2a2e33;
-  --text: #f4f7ff;
-  --muted: #b9c0d2;
-  --accent: #00ff41;
-  --border: #3e4550;
-  --radius: 1rem;
+  --primary-color: #0078d7; /* Blue color */
+  --primary-color-hover: #005bb5; /* Darker blue for hover effects */
+  --secondary-color: #f4f4f9; /* Light background color */
+  --text-color: #333; /* Default text color */
+  --white: #fff; /* White color */
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+/* General styles */
 body {
+  font-family: 'Roboto', sans-serif;
   margin: 0;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  background: linear-gradient(160deg, #17181b 0%, #1a1c1e 55%, #171a24 100%);
-  color: var(--text);
+  padding: 0;
   line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+}
+
+/* Header styles */
+header.site-header {
+  padding: 8px 15px;
+  background: #000; /* Black background */
+  color: var(--white); /* White text for contrast */
+}
+
+header.site-header .brand {
+  font-size: 0.85rem;
+}
+
+header.site-header .brand-icon {
+  width: 24px;
+  height: 24px;
+}
+
+header.site-header nav ul {
+  display: flex;
+  gap: 10px;
+}
+
+/* Social Sidebar Styles */
+.social-sidebar {
+  position: fixed;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 100;
+}
+
+.social-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 120, 215, 0.3);
+}
+
+.social-icon:hover {
+  background: var(--primary-color-hover);
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 120, 215, 0.5);
+}
+
+.social-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Responsive Social Sidebar */
+@media (max-width: 1024px) {
+  .social-sidebar {
+    right: 15px;
+  }
+
+  .social-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .social-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .social-sidebar {
+    position: static;
+    transform: none;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 20px 0;
+  }
+
+  .social-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Footer styles */
+footer.site-footer {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+footer.site-footer nav a {
+  font-size: 0.8rem;
+  color: var(--white);
+}
+
+/* Section spacing */
+section {
+  margin: 20px 0;
+}
+
+.section-heading {
+  margin-bottom: 15px;
+}
+
+.container {
+  padding: 10px 20px;
 }
 
 img { display: block; max-width: 100%; }
@@ -48,7 +167,7 @@ a { color: inherit; text-decoration: none; }
 }
 .nav-wrap { min-height: 4.8rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .brand { display: flex; gap: 0.8rem; align-items: center; }
-.brand-icon { width: 2.2rem; color: var(--primary); }
+.brand-icon { width: 2.2rem; color: var(--primary-color); }
 .brand strong { display: block; font-size: 1.15rem; }
 .brand small { color: var(--muted); font-size: 0.75rem; }
 
@@ -75,7 +194,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   color: #000;
   box-shadow: 4px 4px 0 #0e131f;
 }
-.btn-outline { border-color: var(--primary); color: #dbe4ff; }
+.btn-outline { border-color: var(--primary-color); color: #dbe4ff; }
 .btn-ghost { border-color: var(--border); color: var(--text); }
 
 .hero-grid {
@@ -129,11 +248,16 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   gap: 1rem;
 }
 .service-card {
-  background: var(--bg-soft);
-  border: 2px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.1rem;
-  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  background: var(--white);
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.service-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 .service-card svg {
   width: 1.7rem;
@@ -144,7 +268,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 }
 .service-card:hover {
   transform: translateY(-5px);
-  border-color: var(--primary);
+  border-color: var(--primary-color);
   box-shadow: 7px 7px 0 #121621;
 }
 .service-card p { color: var(--muted); }
@@ -154,7 +278,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   margin: 0;
   padding: 0;
   list-style: none;
-  border-left: 3px solid var(--primary);
+  border-left: 3px solid var(--primary-color);
   display: grid;
   gap: 1rem;
 }
@@ -182,7 +306,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
   padding: 1rem;
 }
 .person { display: flex; align-items: center; gap: 0.75rem; margin-bottom: .8rem; }
-.person img { border-radius: 50%; border: 2px solid var(--primary); }
+.person img { border-radius: 50%; border: 2px solid var(--primary-color); }
 .person h3 { margin: 0; font-size: 1rem; }
 .person p { margin: 0; color: var(--muted); font-size: .85rem; }
 .verified {
@@ -220,4 +344,455 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   html { scroll-behavior: auto; }
+}
+
+/* Adding styles for the custom card */
+.custom-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin: 16px;
+  background-color: #fff;
+  max-width: 300px;
+}
+
+.custom-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.custom-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Styling for the one-page IT company layout */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f4f9;
+}
+
+header {
+  background: var(--primary-color);
+  color: var(--white);
+  padding: 40px 20px;
+  text-align: center;
+}
+
+header a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+header a:hover {
+  color: var(--primary-color-hover);
+}
+
+button {
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: var(--primary-color-hover);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #333;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* Styling for the dropdown menu */
+nav {
+  margin-top: 20px;
+}
+
+.dropdown-menu {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.dropdown-menu li {
+  position: relative;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  list-style: none;
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+.dropdown-content li {
+  margin: 0;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 10px 15px;
+  display: block;
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  background: #f4f4f9;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Adjusting the header size for a more compact layout */
+header.site-header {
+  padding: 10px 20px; /* Reduced padding */
+}
+
+header.site-header .brand {
+  font-size: 1.2rem; /* Smaller font size for the brand */
+}
+
+header.site-header .brand-icon {
+  width: 40px; /* Smaller logo size */
+  height: 40px;
+}
+
+header.site-header nav ul {
+  gap: 15px; /* Reduced spacing between menu items */
+}
+
+/* Removing unnecessary space between sections */
+section {
+  margin: 20px 0; /* Reduced margin between sections */
+}
+
+.section-heading {
+  margin-bottom: 15px; /* Reduced bottom margin for section headings */
+}
+
+.container {
+  padding: 10px 20px; /* Adjusted padding for a tighter layout */
+}
+
+/* Adjusting the footer size for a more compact layout */
+footer.site-footer {
+  padding: 10px 20px; /* Reduced padding */
+  font-size: 0.9rem; /* Smaller font size */
+}
+
+footer.site-footer .footer-wrap {
+  gap: 10px; /* Reduced spacing between footer elements */
+}
+
+footer.site-footer nav a {
+  font-size: 0.8rem; /* Smaller font size for social links */
+}
+
+/* Making the header even more compact */
+header.site-header {
+  padding: 5px 15px; /* Further reduced padding */
+}
+
+header.site-header .brand {
+  font-size: 1rem; /* Smaller font size for the brand */
+}
+
+header.site-header .brand-icon {
+  width: 30px; /* Further reduced logo size */
+  height: 30px;
+}
+
+header.site-header nav ul {
+  gap: 10px; /* Further reduced spacing between menu items */
+}
+
+/* Enhanced Responsive Dropdown Menu Styles */
+.dropdown-menu {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.dropdown-menu li {
+  position: relative;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none !important;
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  background: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  list-style: none;
+  padding: 0.75rem 0;
+  z-index: 1000;
+  min-width: 280px;
+}
+
+.dropdown-content.active {
+  display: block !important;
+}
+
+.dropdown-content li {
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-content li a {
+  color: #333;
+  padding: 12px 20px;
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: normal;
+  transition: color 0.3s, background 0.3s;
+}
+
+.dropdown-content li a:hover {
+  color: var(--primary-color-hover);
+  background: #f5f5f5;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Responsive Design for Tablets */
+@media (max-width: 768px) {
+  .dropdown-content {
+    width: 280px;
+    max-width: 90vw;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .dropdown-content li a {
+    padding: 10px 16px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 480px) {
+  .dropdown-menu {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .dropdown-menu a {
+    padding: 8px 12px;
+    font-size: 0.95rem;
+  }
+
+  .dropdown-content {
+    width: calc(100vw - 20px);
+    max-width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 0;
+  }
+
+  .dropdown-content li a {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Floating Chat Button Styles */
+.chat-button-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.chat-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 120, 215, 0.4);
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.chat-button:hover {
+  width: 200px;
+  border-radius: 30px;
+  background: var(--primary-color-hover);
+  box-shadow: 0 6px 20px rgba(0, 120, 215, 0.6);
+}
+
+.chat-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.chat-name {
+  display: none;
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.chat-button:hover .chat-name {
+  display: block;
+  animation: slideIn 0.3s ease;
+}
+
+.chat-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 0.85rem;
+  animation: fadeIn 0.5s ease;
+}
+
+.bot-name {
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+}
+
+.bot-status {
+  width: 8px;
+  height: 8px;
+  background: #4CAF50;
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Chat Button for Mobile */
+@media (max-width: 480px) {
+  .chat-button-container {
+    bottom: 20px;
+    right: 20px;
+    gap: 8px;
+  }
+
+  .chat-button {
+    width: 50px;
+    height: 50px;
+  }
+
+  .chat-button:hover {
+    width: 150px;
+  }
+
+  .chat-name {
+    font-size: 0.9rem;
+  }
+
+  .chat-label {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+
+  .bot-name {
+    font-size: 0.85rem;
+  }
+
+  .bot-status {
+    width: 7px;
+    height: 7px;
+  }
 }
