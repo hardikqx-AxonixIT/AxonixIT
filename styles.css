@@ -229,7 +229,9 @@ h3 {
 
 .hero-grid,
 .trust-wrap,
-.footer-wrap {
+.footer-wrap,
+.local-seo-grid,
+.faq-grid {
   display: grid;
   gap: 1.5rem;
 }
@@ -284,7 +286,9 @@ h3 {
 .hero-media-card,
 .service-card,
 .timeline-step,
-.testimonial-card {
+.testimonial-card,
+.local-seo-card,
+.faq-card {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: rgba(18, 29, 52, 0.78);
@@ -364,6 +368,29 @@ h3 {
 .service-points {
   margin: 1rem 0 0;
   padding-left: 1rem;
+  color: var(--muted);
+}
+
+.local-seo-section {
+  padding-top: 2.5rem;
+}
+
+.local-seo-card,
+.faq-card {
+  padding: 1.4rem;
+}
+
+.highlight-card {
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.14), rgba(18, 29, 52, 0.88));
+}
+
+.local-seo-card h3,
+.faq-card h3 {
+  margin-bottom: 0.8rem;
+}
+
+.local-seo-card p,
+.faq-card p {
   color: var(--muted);
 }
 
@@ -563,6 +590,15 @@ h3 {
   .footer-wrap {
     grid-template-columns: 1fr auto;
     align-items: center;
+  }
+
+  .local-seo-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: start;
+  }
+
+  .faq-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .bento-grid {
