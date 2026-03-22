@@ -1,1 +1,12 @@
-{\n  "name": "AxonixIT",\n  "short_name": "AxonixIT",\n  "start_url": "/",\n  "display": "standalone",\n  "background_color": "#0d1526",\n  "theme_color": "#0d1526",\n  "icons": [\n    {\n      "src": "/assets/favicon-192.png",\n      "sizes": "192x192",\n      "type": "image/png"\n    },\n    {\n      "src": "/assets/favicon-512.png",\n      "sizes": "512x512",\n      "type": "image/png"\n    }\n  ]\n}
+{
+  "name": "AxonixIT",
+  "short_name": "AxonixIT",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1526",
+  "theme_color": "#0d1526",
+  "icons": [
+    { "src": "/assets/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/favicon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
